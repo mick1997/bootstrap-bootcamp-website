@@ -55,7 +55,7 @@
           </div>
         </div>
       </nav>
-
+        
     <!-- Add Person --> 
     <section id="addPerson" class="p-5 bg-primary">
       <div class="container">
@@ -82,7 +82,7 @@
         </div>
         <div class="mb-3 col-3">
           <label for="addPersonInfo" class="form-label">Expertise</label>
-          <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+          <select class="form-select" id="levelSelect" aria-label="Example select with button addon">
             <option selected>Experience</option>
             <option value="beginner">beginner</option>
             <option value="intermediate">intermediate</option>
@@ -113,12 +113,14 @@
             let email = document.getElementById('email').value;
             let dateOfBirth = document.getElementById('dob').value;
             let dateOfJoin = document.getElementById('doj').value;
+            let levelSelect = document.getElementById('levelSelect').value;
             
-            alert(userName, phoneNumber);
-            alert(phoneNumber);
-            alert(email);
-            alert(dateOfBirth);
-            alert(dateOfJoin);
+            alert(userName + "\n" + 
+                  phoneNumber + "\n" + 
+                  email + "\n" +
+                  dateOfBirth + "\n" + 
+                  dateOfJoin + "\n" + 
+                  levelSelect);
         }
     </script>
 
