@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Bootcamp</title>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+        <div class="container">
+          <a href="#" class="navbar-brand">Frontend Bootcamp</a>
+  
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navmenu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="#learn" class="nav-link">What You'll Learn</a>
+              </li>
+              <li class="nav-item">
+                <a href="#questions" class="nav-link">Questions</a>
+              </li>
+              <li class="nav-item">
+                <a href="#instructors" class="nav-link">Instructors</a>
+              </li>
+              <li class="nav-item">
+                <a href="#addPerson" class="nav-link">Person Biography</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+        
+    <!-- Add Person --> 
+    <section id="addPerson" class="p-5 bg-primary">
+        <div class="container">
+          <p class="h3">Person Biography</p>
+          <div class="mb-3 col-3">
+            <label for="addPersonInfo" class="form-label">Name</label>
+            <input type="text" class="form-control form-control-sm" id="name" placeholder="Name">
+          </div>
+          <div class="mb-3 col-3">
+            <label for="addPersonInfo" class="form-label">Contact</label>
+            <input type="text" class="form-control form-control-sm" id="number" placeholder="Phone number">
+          </div>
+          <div class="mb-3 col-3">
+            <label for="addPersonInfo" class="form-label">Email</label>
+            <input type="text" class="form-control form-control-sm" id="email" placeholder="name@example.com">
+          </div>
+          <div class="mb-3 col-3">
+            <label for="addPersonInfo" class="form-label">Date of birth</label>
+            <input type="date" class="form-control form-control-sm" id="dob">
+          </div>
+          <div class="mb-3 col-3">
+            <label for="addPersonInfo" class="form-label">Date of join</label>
+            <input type="date" class="form-control form-control-sm" id="doj">
+          </div>
+          <div class="mb-3 col-3">
+            <label for="addPersonInfo" class="form-label">Expertise</label>
+            <select class="form-select" id="levelSelect" aria-label="Example select with button addon">
+              <option selected>Experience</option>
+              <option value="beginner">beginner</option>
+              <option value="intermediate">intermediate</option>
+              <option value="expert">expert</option>
+            </select>
+          </div>
+          <div class="d-md-flex">
+            <button class="btn btn-secondary" type="submit" onclick="submitdate()">Submit</button>
+          </div>
+        </div>
+      </section>
+
+    <!-- Person added -->
+    <div class="container">
+        <p class="h3" >Person Biography Added</p>
+        <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th scope="num">No.</th>
+                <th scope="name">Name</th>
+                <th scope="contact">Contact</th>
+                <th scope="email">Email</th>
+                <th scope="dob">Date of Birth</th>
+                <th scope="doj">Date of Join</th>
+                <th scope="expertise">Expertise</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              
+            </tbody>
+          </table>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+      <div class="container">
+        <p class="lead">Copyright &copy; 2021 Frontend Bootcamp</p>
+
+        <a href="#" class="position-absolute bottom-0 end-0 p-5">
+          <i class="bi bi-arrow-up-circle h1"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+        let num = 1;
+
+        function submitdate() {
+            // console.log('work')
+            let userName = document.getElementById('name').value;
+            let phoneNumber = document.getElementById('number').value;
+            let email = document.getElementById('email').value;
+            let dateOfBirth = document.getElementById('dob').value;
+            let dateOfJoin = document.getElementById('doj').value;
+            let levelSelect = document.getElementById('levelSelect').value;
+
+            let tbody = document.getElementById('tbody');
+            
+            // alert("Username: " + userName + "\n" + 
+            //       "Phone number: " + phoneNumber + "\n" + 
+            //       "Email: " + email + "\n" +
+            //       "Date of Birth: " + dateOfBirth + "\n" + 
+            //       "Date of Join: " + dateOfJoin + "\n" + 
+            //       "Level Select: " + levelSelect);
+
+            tbody.innerHTML += `
+            <tr>
+                <th scope="row">${num}</th>
+                <td>${userName}</td>
+                <td>${phoneNumber}</td>
+                <td>${email}</td>
+                <td>${dateOfBirth}</td>
+                <td>${dateOfJoin}</td>
+                <td>${levelSelect}</td>
+            </tr>
+            `
+        num++;
+        }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+
+    <script>
+      mapboxgl.accessToken =
+        'pk.eyJ1IjoiYnRyYXZlcnN5IiwiYSI6ImNrbmh0dXF1NzBtbnMyb3MzcTBpaG10eXcifQ.h5ZyYCglnMdOLAGGiL1Auw'
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-71.060982, 42.35725],
+        zoom: 18,
+      })
+    </script>
+  </body>
+</html>
